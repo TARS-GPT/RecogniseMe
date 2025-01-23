@@ -89,9 +89,5 @@ Contributions and feedback are always welcome!
 4. Push to your fork: `git push origin feature/YourFeature`.  
 5. Create a Pull Request on this repo.
 
-## Contact
-For any questions or to show off your hilarious swaps:
-- **GitHub Issues**: [Open an issue](https://github.com/<YOUR_USERNAME>/recognise-me/issues)
-- **Email**: youremail@example.com (optional)
 
 Enjoy “Recognise Me” and have a blast seeing how well your friends or family can still recognise each other!
