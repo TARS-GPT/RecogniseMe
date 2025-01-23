@@ -1,82 +1,79 @@
-Eye Swap in a Single Image
-Swap the eyes of two people detected in one image using dlib for facial landmarks and OpenCV for image manipulation. This repository provides a simple yet extendable example of facial feature manipulation in Python.
-
-<sup>(Replace the above link with your own demo image or remove this section.)</sup>
+Recognise Me
+Recognise Me is a playful “fun filter” app that lets couples, friends, or family members swap eyes in a photo. It’s a lighthearted way to see if everyone can still “recognise” each other after the swap!
 
 Table of Contents
+Description
 Features
-Project Structure
+Demo
 Installation
 Usage
-Troubleshooting
-Roadmap
-Contributing
+How It Works
+Future Improvements
 License
+Contributing
+Contact
+Description
+“Recognise Me” takes a single photo with at least two people facing forward. It then detects both faces, swaps their eyes, and presents the resulting image to see if others can guess who’s who. It’s a fun twist on face filters that can be used at parties or for social media challenges.
+
 Features
-Automatic Face Detection: Uses dlib to detect faces in a single image.
-Facial Landmark Extraction: Identifies eye regions (68-point model).
-Eye Swapping: Swaps the left and right eyes between two detected faces.
-Extendable: Code can be adapted for more advanced blending, web interfaces, or additional facial features.
-Project Structure
-css
-Copy
-eye_swap_single_image/
-├── data/
-│   ├── group_photo.jpg
-│   └── shape_predictor_68_face_landmarks.dat
-├── src/
-│   └── main.py
-├── requirements.txt
-├── README.md
-└── .gitignore
-data/
-group_photo.jpg: Your image file containing two faces.
-shape_predictor_68_face_landmarks.dat: Pre-trained dlib landmarks model.
-src/
-main.py: Main Python script for detecting faces and swapping eyes.
-requirements.txt
-Lists Python dependencies.
-README.md
-Project documentation (you’re reading it now!).
-.gitignore
-Specifies files/folders Git should ignore (e.g., virtual environments, caches).
+Eye Swapping: Detects the left and right eyes of two faces and exchanges them in the same image.
+Simple to Run: Command-line or script-based tool (can be adapted into a web interface).
+Lightweight: Uses common Python libraries such as OpenCV, dlib, and numpy.
+Demo
+If you have a demo image, you can provide screenshots here:
+
+Original Image	Swapped Image
+Insert Original	Insert Swapped
+(Feel free to replace with real images or GIFs.)
+
 Installation
-Clone or Download this repository:
+Clone the Repository
 
 bash
 Copy
-git clone https://github.com/<YOUR_USERNAME>/eye_swap_single_image.git
-cd eye_swap_single_image
-Install Dependencies:
+git clone https://github.com/<YOUR_USERNAME>/recognise-me.git
+cd recognise-me
+Install Dependencies
 
+Make sure you have Python 3.7+ installed.
+Then install required packages:
 bash
 Copy
 pip install -r requirements.txt
-The main libraries are:
+You’ll typically need:
+opencv-python
+dlib
+numpy
+Obtain the Dlib Landmark Model
 
-OpenCV for image processing
-dlib for face detection and landmarks
-NumPy for numeric operations
-Obtain Landmark Model (if not in data/ already):
-
-Download the shape_predictor_68_face_landmarks.dat file.
-Place it in the data/ folder so the path in main.py is valid.
+Download the file shape_predictor_68_face_landmarks.dat from dlib-models
+Place it in the data/ folder so the script can access it.
 Usage
-Edit Your Image
+Prepare Your Photo
 
-Ensure group_photo.jpg (or another image with exactly two faces) is placed in data/.
-Update the paths in src/main.py if you use different filenames.
-Run the Script:
+Place a single image named (for example) group_photo.jpg in the data/ folder. Make sure it contains two people looking forward.
+Run the Script
 
 bash
 Copy
 python src/main.py
-Results:
+The script will:
+Detect the two faces.
+Swap their eyes.
+Display the original and swapped images in pop-up windows.
+Optionally, save the swapped output to a file named swapped_result.jpg.
+Enjoy the Result
 
-Two windows will pop up: one showing the original image and another showing the swapped result.
-By default, a swapped_result.jpg file may be created (depending on your main.py settings).
-Troubleshooting
-No Faces Detected: Ensure your image has two clear, front-facing heads. Check lighting and resolution.
-Dlib Installation Issues: Some systems need extra steps (like installing CMake) to build dlib. Check dlib’s documentation.
-Image Path Errors: Verify group_photo.jpg and shape_predictor_68_face_landmarks.dat paths in main.py match your folder structure.
-More Than Two Faces: The demo script only swaps eyes between the first two detected faces. Modify the code to handle more if needed.
+Share your fun swapped photo with friends, or challenge them to guess whose eyes are whose!
+How It Works
+Face & Landmark Detection: Uses dlib.get_frontal_face_detector() to detect faces and shape_predictor_68_face_landmarks.dat for facial landmark detection (68 points).
+Identify Eye Regions: The script locates the indices for the left (36–41) and right (42–47) eyes.
+Swapping: Extracts each eye region (with masks), resizes if necessary, and copies from one face to the other.
+Display: Shows the original and final swapped images side-by-side or in separate windows.
+Future Improvements
+Seamless Blending: Use Poisson blending or cv2.seamlessClone to better merge edges.
+Multiple Faces: Allow the user to pick which two faces to swap if more than two faces are detected.
+Web Interface: Convert to a lightweight web app using Flask or Streamlit for a user-friendly upload-and-swap experience.
+Swap Other Features: Extend swapping to lips, noses, or hair for more fun.
+License
+This project is available under the MIT License. Feel free to use, modify, and distribute as you see fit. If you build something awesome, let us know!
