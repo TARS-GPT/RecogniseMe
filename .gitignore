@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS / Linux / Windows files
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# Log files
+*.log
+
+# If you have large data files you don't want to track
+# data/
+# or specific images inside data:
+# data/*.jpg
+# data/*.png
+# (Uncomment or edit as needed)
+
+# If using an IDE (PyCharm, VSCode, etc.), ignore their config files:
+.idea/
+.vscode/
